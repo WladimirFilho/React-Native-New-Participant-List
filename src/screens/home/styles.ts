@@ -12,7 +12,18 @@ export const styles = StyleSheet.create({
       color: 'white',
     },
     eventDate:{
-      color: 'white',
+      color: '#9A9A9A',
       
+    }, 
+
+    input: {
+        marginTop: 20,
+        padding: 8,
+        height: 56,
+        backgroundColor: '#1F1E25',
+        borderRadius: 10,
+
+        color: 'white',
+        fontSize: 16,
     }
   });
