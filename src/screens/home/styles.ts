@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
 
+/// Styles - Home
+
 export const styles = StyleSheet.create({
     container: {
-      padding: 50,
+      padding: 40,
       flex: 1,
       backgroundColor: 'black',
     },
@@ -17,11 +19,13 @@ export const styles = StyleSheet.create({
     }, 
 
     input: {
-        marginTop: 20,
+        flex:1,
+
         padding: 8,
+        marginRight: 12,
         height: 56,
         backgroundColor: '#1F1E25',
-        borderRadius: 10,
+        borderRadius: 4,
 
         color: 'white',
         fontSize: 16,
@@ -30,16 +34,23 @@ export const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: 42,
-        height: 42,
+        width: 56,
+        height: 56,
         borderRadius: 4,
         backgroundColor: '#31CF67'
-    
-
     },
+
     buttonText: {
         color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
+    },
+
+    form: {
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 36,
+        marginBottom: 42,
     }
   });
