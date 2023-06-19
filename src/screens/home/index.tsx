@@ -1,9 +1,18 @@
 
-import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './styles';
 
 export function Home() {
+
+    let number = 1
+// Functions
+    function handleParticipantAdd() {
+        
+        console.log(`'clicked' ${ number++ }`)
+}
+
+
   return (
     <View style={styles.container}>
 
@@ -18,8 +27,11 @@ export function Home() {
               placeholder='Type here..'
               placeholderTextColor='#6B6B6B'
               keyboardType='default'
-        
           />
+
+          <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+              <Text style={styles.buttonText}>+</Text>
+          </TouchableOpacity>
 
     </View>
   );
