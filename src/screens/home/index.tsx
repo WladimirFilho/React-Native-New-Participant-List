@@ -9,30 +9,25 @@ import {
 
 import { styles } from "./styles";
 import { Participants } from "../../components/participants";
+import { useState } from "react";
+
+// Home Component
 
 export function Home() {
-  /// Home Component
-
-  const participants = [
-    "Wlad",
-    "Diego",
-    "Jairo",
-    "Ana",
-    "Marta",
-    "Taylor",
-    "John",
-  ];
+  const [participants, setParticipants] = useState(["Wlad"]);
 
   // Functions
-
   function handleParticipantAdd() {
-    if (participants.includes("Wlad")) {
+    if (participants.includes("John")) {
       return Alert.alert(
         "Participant duplicated",
         "This participant has being added already"
       );
     }
 
+    setParticipants((prevState) => [...prevState, "new participant"]);
+
+    console.log(participants);
     console.log("New participant Added");
   }
 
