@@ -14,21 +14,19 @@ import { useState } from "react";
 // Home Component
 
 export function Home() {
-  const [participants, setParticipants] = useState(["Wlad"]);
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participantNew, setParticipantNew] = useState("");
 
   // Functions
   function handleParticipantAdd() {
-    if (participants.includes("John")) {
+    if (participants.includes(participantNew)) {
       return Alert.alert(
         "Participant duplicated",
         "This participant has being added already"
       );
     }
-
-    setParticipants((prevState) => [...prevState, "new participant"]);
-
-    console.log(participants);
-    console.log("New participant Added");
+    setParticipants((prevState) => [...prevState, participantNew]);
+    setParticipantNew("");
   }
 
   function handleParticipantRemove(name: string) {
@@ -58,6 +56,8 @@ export function Home() {
 
       <View style={styles.form}>
         <TextInput
+          onChangeText={(text) => setParticipantNew(text)}
+          value={participantNew}
           style={styles.input}
           placeholder="  New participants..."
           placeholderTextColor="#6B6B6B"
