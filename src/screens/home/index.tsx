@@ -4,6 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
 
 import { styles } from "./styles";
@@ -25,11 +26,33 @@ export function Home() {
   // Functions
 
   function handleParticipantAdd() {
+    if (participants.includes("Wlad")) {
+      return Alert.alert(
+        "Participant duplicated",
+        "This participant has being added already"
+      );
+    }
+
     console.log("New participant Added");
   }
 
   function handleParticipantRemove(name: string) {
-    console.log("Participant Removed");
+    Alert.alert(
+      "Removing participant",
+      `Sure you want to remove -> ${name} ?`,
+      [
+        {
+          text: "Yes",
+          onPress: () => Alert.alert(`The participant ${name} was removed`),
+        },
+        {
+          text: "No",
+          style: "cancel",
+        },
+      ]
+    );
+
+    console.log("Participant will be Removed");
   }
 
   return (
@@ -58,7 +81,7 @@ export function Home() {
           <Participants
             key={item}
             name={item}
-            onRemove={() => handleParticipantRemove("Wlad")}
+            onRemove={() => handleParticipantRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}
